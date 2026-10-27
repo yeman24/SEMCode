@@ -1,4 +1,4 @@
-FROM amazoncorretto:27
-COPY ./target/classes/org /tmp/org
+FROM amazoncorretto:17
+COPY ./target/semApp.jar /tmp/semApp.jar
 WORKDIR /tmp
-ENTRYPOINT ["java", "org.example.App"]
+ENTRYPOINT ["java", "-jar", "semApp.jar"]
