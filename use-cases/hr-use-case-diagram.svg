@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="740" viewBox="0 0 1120 740">
+<rect width="100%" height="100%" fill="white"/>
+<style>text{font-family:Arial,sans-serif;fill:#17243a}.system{fill:#f8fbff;stroke:#52769c;stroke-width:2}.uc{fill:white;stroke:#41668b;stroke-width:1.7}.line{stroke:#64748b;stroke-width:1.5;fill:none}.label{font-size:17px}.small{font-size:14px}</style>
+<rect class="system" x="260" y="65" width="620" height="625" rx="12"/>
+<text x="570" y="98" text-anchor="middle" font-size="22" font-weight="bold">HR Employee Management System</text>
+<circle cx="115" cy="300" r="15" fill="none" stroke="#17243a" stroke-width="2"/>
+<path d="M115 315 V373 M85 339 H145 M115 373 L89 404 M115 373 L141 404" fill="none" stroke="#17243a" stroke-width="2"/>
+<text x="115" y="430" text-anchor="middle" class="label">HR Advisor</text>
+<circle cx="1000" cy="300" r="15" fill="none" stroke="#17243a" stroke-width="2"/>
+<path d="M1000 315 V373 M970 339 H1030 M1000 373 L974 404 M1000 373 L1026 404" fill="none" stroke="#17243a" stroke-width="2"/>
+<text x="1000" y="430" text-anchor="middle" class="label">Department Manager</text>
+<path class="line" d="M145 354 L315 170"/>
+<path class="line" d="M145 354 L585 170"/>
+<path class="line" d="M145 354 L315 285"/>
+<path class="line" d="M145 354 L585 285"/>
+<path class="line" d="M145 354 L315 400"/>
+<path class="line" d="M145 354 L585 400"/>
+<path class="line" d="M145 354 L315 515"/>
+<path class="line" d="M970 354 L525 285"/>
+<path class="line" d="M970 354 L795 285"/>
+<ellipse class="uc" cx="420" cy="170" rx="105.0" ry="35.0"/>
+<text x="420" y="166.0" class="small" text-anchor="middle">Salary report:</text>
+<text x="420" y="184.0" class="small" text-anchor="middle">all employees</text>
+<ellipse class="uc" cx="690" cy="170" rx="105.0" ry="35.0"/>
+<text x="690" y="166.0" class="small" text-anchor="middle">Salary report:</text>
+<text x="690" y="184.0" class="small" text-anchor="middle">by job role</text>
+<ellipse class="uc" cx="420" cy="285" rx="105.0" ry="35.0"/>
+<text x="420" y="281.0" class="small" text-anchor="middle">Salary report:</text>
+<text x="420" y="299.0" class="small" text-anchor="middle">by department</text>
+<ellipse class="uc" cx="690" cy="285" rx="105.0" ry="35.0"/>
+<text x="690" y="281.0" class="small" text-anchor="middle">View employee</text>
+<text x="690" y="299.0" class="small" text-anchor="middle">record</text>
+<ellipse class="uc" cx="420" cy="400" rx="105.0" ry="35.0"/>
+<text x="420" y="405.0" class="small" text-anchor="middle">Add employee</text>
+<ellipse class="uc" cx="690" cy="400" rx="105.0" ry="35.0"/>
+<text x="690" y="405.0" class="small" text-anchor="middle">Update employee</text>
+<ellipse class="uc" cx="420" cy="515" rx="105.0" ry="35.0"/>
+<text x="420" y="520.0" class="small" text-anchor="middle">Delete employee</text>
+<text x="570" y="633" text-anchor="middle" font-size="14" fill="#475569">Current scope: HR Advisor and Department Manager use cases</text>
+</svg>
