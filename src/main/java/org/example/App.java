@@ -2,6 +2,7 @@
 package org.example;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class App {
 
@@ -47,7 +48,7 @@ public class App {
         }
     }
 
-    // View Employee Record - Lab 3a
+    // Lab 3a - View Employee Record
     public Employee getEmployee(int ID) {
 
         String sql = """
@@ -101,7 +102,7 @@ public class App {
         return null;
     }
 
-    // Display Employee Record - Lab 3a
+    // Lab 3a - Display Employee Record
     public void displayEmployee(Employee emp) {
 
         if (emp != null) {
@@ -119,7 +120,7 @@ public class App {
         }
     }
 
-    // Salary by Role - Lab 3b
+    // Lab 3b - Salary Report by Role
     public void getSalariesByRole(String title) {
 
         String sql = """
@@ -174,19 +175,93 @@ public class App {
         }
     }
 
-    // Main Program
+    // Lab 04 - Get All Current Salaries
+    public ArrayList<Employee> getAllSalaries() {
+
+        ArrayList<Employee> employees = new ArrayList<>();
+
+        if (con == null) {
+            System.out.println("Database not connected");
+            return null;
+        }
+
+        String sql =
+                "SELECT employees.emp_no, employees.first_name, " +
+                        "employees.last_name, salaries.salary " +
+                        "FROM employees, salaries " +
+                        "WHERE employees.emp_no = salaries.emp_no " +
+                        "AND salaries.to_date = '9999-01-01' " +
+                        "ORDER BY employees.emp_no ASC";
+
+        try (Statement stmt = con.createStatement();
+             ResultSet rset = stmt.executeQuery(sql)) {
+
+            while (rset.next()) {
+
+                Employee emp = new Employee();
+
+                emp.emp_no = rset.getInt("emp_no");
+                emp.first_name = rset.getString("first_name");
+                emp.last_name = rset.getString("last_name");
+                emp.salary = rset.getInt("salary");
+
+                employees.add(emp);
+            }
+
+            return employees;
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get salary details");
+            return null;
+        }
+    }
+
+    // Lab 04 - Print All Current Salaries
+    public void printSalaries(ArrayList<Employee> employees) {
+
+        System.out.println(
+                String.format(
+                        "%-10s %-15s %-20s %-8s",
+                        "Emp No",
+                        "First Name",
+                        "Last Name",
+                        "Salary"
+                )
+        );
+
+        for (Employee emp : employees) {
+
+            String empString = String.format(
+                    "%-10s %-15s %-20s %-8s",
+                    emp.emp_no,
+                    emp.first_name,
+                    emp.last_name,
+                    emp.salary
+            );
+
+            System.out.println(empString);
+        }
+    }
+
+    // Main Program - Lab 04
     public static void main(String[] args) {
 
         App a = new App();
 
         a.connect();
 
-        // Lab 3a - View Employee
-        Employee emp = a.getEmployee(255530);
-        a.displayEmployee(emp);
+        // Get all current employee salaries
+        ArrayList<Employee> employees = a.getAllSalaries();
 
-        // Lab 3b - Salary Report by Role
-        a.getSalariesByRole("Engineer");
+        if (employees != null) {
+
+            // Expected result: 240124
+            System.out.println(employees.size());
+
+            // Print salary report
+            a.printSalaries(employees);
+        }
 
         a.disconnect();
     }
